@@ -3,18 +3,33 @@ name: My first workflow
 on: push
 
 jobs:
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-        - name: checkout repo
-          uses: actions/checkout@v7
+    build-job:
+      runs-on: ubuntu-latest
+      steps:
+      - name: install cowsay library
+        run: sudo apt-get install cowsay -y
 
-        - name: list files  
-          run: ls -ltra
+      - name: execute cowsay command
+        run: cowsay -f dragon " run i'm a dragon" >> dragon.txt
+
+      - name: sleep
+        run: sleep 3000
+
+    test-job:
+      runs-on: ubuntu-latest
+      steps:
+      - name: sleep for 10 sec
+        run: sleep 10
+
+      -name: Test file exists
+       run: grep -i "dragon" dragon.txt
+
+    Deploy-job:
+      runs-on: ubuntu-latest
+      steps:
+      - name: read file
+        run: cat dragon.txt
+
+      - name: deploy
+        run: echo " deploy "
         
-        - name: add permissions
-          run: chmod +x ascii-script.sh
-          
-        - name: Run the ascii-script
-          run: ./ascii-script.sh
-            
