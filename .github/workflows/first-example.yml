@@ -22,8 +22,8 @@ jobs:
       needs: build-job
       runs-on: ubuntu-latest
       steps:
-       name: Download the dragon text file
-       uses: actions/download-artifact@v8
+      - name: Download the dragon text file
+        uses: actions/download-artifact@v8
         with: 
           name: dragon-textfile
 
