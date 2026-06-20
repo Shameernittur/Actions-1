@@ -9,22 +9,6 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v7
 
-        - name: install ascii artwork cowsay command
-          run: sudo apt-get install cowsay -y 
-
-        - name: list and read files
-          run: | 
-               echo " my first github actions job"
-               cat README.md
-               
-        - name: Generate ASCII artwork
-          run: cowsay -f dragon "run i'm a scary dragon....rawrrr..." >> dragon.txt      
-
-        - name: Text file exists
-          run: grep -i "dragon" dragon.txt 
-
-        - name : checkout repo files 
-          run: |
-                ls -ltra
-                cat dragon.txt
+        - name: Run the ascii-script
+          run: ./ascii-script.sh
             
