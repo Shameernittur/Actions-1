@@ -9,17 +9,19 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v7
 
+        - name: install ascii artwork cowsay command
+          run: sudo apt-get install cosway -y 
+
         - name: list and read files
           run: | 
                echo " my first github actions job"
-               ls -ltra
                cat README.md
                
         - name: Generate ASCII artwork
           run: cowsay -f dog "run i'm a scary dragon....rawrrr..." >> dragon.txt      
 
-        # - name: list files
-        #   run: ls 
+        - name: Text file exists
+           run: grep -i "dragon" dragon.txt 
 
-        # - name : read file 
-        #   run: cat README.md
+        - name : checkout repo files 
+           run: ls -ltra
