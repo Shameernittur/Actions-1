@@ -18,10 +18,10 @@ jobs:
                cat README.md
                
         - name: Generate ASCII artwork
-          run: cowsay -f dog "run i'm a scary dragon....rawrrr..." >> dragon.txt      
+          run: cowsay -f dragon "run i'm a scary dragon....rawrrr..." >> dragon.txt      
 
         - name: Text file exists
-          run: grep -i "dog" dragon.txt 
+          run: grep -i "dragon" dragon.txt 
 
         - name : checkout repo files 
           run: ls -ltra
