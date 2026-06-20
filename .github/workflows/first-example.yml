@@ -23,7 +23,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
        name: Download the dragon text file
-        uses: actions/download-artifact@v8
+       uses: actions/download-artifact@v8
         with: 
           name: dragon-textfile
 
@@ -38,7 +38,7 @@ jobs:
         uses: actions/download-artifact@v8
         with: 
           name: dragon-textfile
-          
+
       - name: read file
         run: cat dragon.txt
 
