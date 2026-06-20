@@ -13,9 +13,10 @@ jobs:
         run: cowsay -f dragon " run i'm a dragon" >> dragon.txt
 
       - name: sleep
-        run: sleep 3000
+        run: sleep 10
 
     test-job:
+      needs: build-job
       runs-on: ubuntu-latest
       steps:
       - name: sleep for 10 sec
@@ -25,6 +26,7 @@ jobs:
         run: grep -i "dragon" dragon.txt
 
     Deploy-job:
+      needs: test-job
       runs-on: ubuntu-latest
       steps:
       - name: read file
