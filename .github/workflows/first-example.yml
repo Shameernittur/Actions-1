@@ -21,7 +21,7 @@ jobs:
           run: cowsay -f dog "run i'm a scary dragon....rawrrr..." >> dragon.txt      
 
         - name: Text file exists
-           run: grep -i "dog" dragon.txt 
+          run: grep -i "dog" dragon.txt 
 
         - name : checkout repo files 
-           run: ls -ltra
+          run: ls -ltra
