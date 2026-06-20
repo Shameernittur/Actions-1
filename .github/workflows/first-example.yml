@@ -21,8 +21,8 @@ jobs:
       - name: sleep for 10 sec
         run: sleep 10
 
-      -name: Test file exists
-       run: grep -i "dragon" dragon.txt
+      - name: Test file exists
+        run: grep -i "dragon" dragon.txt
 
     Deploy-job:
       runs-on: ubuntu-latest
