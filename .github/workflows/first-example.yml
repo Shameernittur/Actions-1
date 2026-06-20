@@ -10,7 +10,7 @@ jobs:
           uses: actions/checkout@v7
 
         - name: install ascii artwork cowsay command
-          run: sudo apt-get install cosway -y 
+          run: sudo apt-get install cowsay -y 
 
         - name: list and read files
           run: | 
