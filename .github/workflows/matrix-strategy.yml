@@ -7,9 +7,17 @@ on:
 jobs:
     deploy:
         strategy:
+            fail-fast: false
+            max-parallel: 3
             matrix:
                 os: [ubuntu-latest, windows-latest, ubuntu-20.04]
                 images: [hello-world, alpine-image]
+                exclude:
+                    - os: windows-latest
+                      images: alpine-image
+                include:
+                  - os: ubuntu-latest
+                    images: amd64-image
         runs-on: ${{ matrix.os }}
         steps:
             - name: echo docker details
@@ -17,5 +25,3 @@ jobs:
 
             - name: run on ${{ matrix.os }}
               run: docker run ${{ matrix.images }}
-      
-    
